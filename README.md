@@ -1,4 +1,4 @@
-# book-to-mindmap
+# book-to-mindmap-skill
 
 > 把一本书变成能直接导入 XMind 的思维导图，并让插图说中文。
 
@@ -19,12 +19,12 @@
 
 ```bash
 # Windows
-git clone https://github.com/zhao-heng-sheng/book-to-mindmap.git \
-  "$USERPROFILE/.workbuddy/skills/book-to-mindmap"
+git clone https://github.com/zhao-heng-sheng/book-to-mindmap-skill.git \
+  "$USERPROFILE/.workbuddy/skills/book-to-mindmap-skill"
 
 # macOS / Linux
-git clone https://github.com/zhao-heng-sheng/book-to-mindmap.git \
-  ~/.workbuddy/skills/book-to-mindmap
+git clone https://github.com/zhao-heng-sheng/book-to-mindmap-skill.git \
+  ~/.workbuddy/skills/book-to-mindmap-skill
 ```
 
 重启助手后生效。技能靠 `SKILL.md` 的 description 自动触发，说「总结这本书，整理成可以导入思维导图的 md」即可。
@@ -32,7 +32,7 @@ git clone https://github.com/zhao-heng-sheng/book-to-mindmap.git \
 ## 目录结构
 
 ```
-book-to-mindmap/
+book-to-mindmap-skill/
 ├── SKILL.md                  主流程：8 步工作法 + 格式硬性要求 + 常见坑
 ├── scripts/
 │   ├── extract_epub.py       EPUB → 分节正文 + 图片索引 + 图注

@@ -1,5 +1,5 @@
 ---
-name: book-to-mindmap
+name: book-to-mindmap-skill
 description: 把书籍或长文（EPUB / PDF / TXT）整理成可直接导入思维导图的 Markdown。采用因果链优先的结构（前提 → 机制 → 代价 → 结论），逐章全覆盖不抽样；插图按所在小节定位、只保留结构图，英文插图译成中文后按原结构重绘，并附 HTML 图集兜底。当用户提出"总结这本书""整理成思维导图/脑图""做成可导入的 md""拆解全书"等需求时使用。
 agent_created: true
 ---
