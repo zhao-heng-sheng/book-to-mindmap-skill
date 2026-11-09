@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>结构图集 · {{TITLE}}</title>
+<style>
+  :root {
+    --ink: #26333F; --muted: #6B7A88; --line: #E2E9EF;
+    --bg: #FBFCFD; --accent: #2F6B9A;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 48px 32px 72px; background: #fff; color: var(--ink);
+    font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif;
+    line-height: 1.7;
+  }
+  header { max-width: 900px; margin: 0 auto 40px; }
+  h1 { font-size: 28px; margin: 0 0 10px; letter-spacing: .5px; }
+  .sub { color: var(--muted); font-size: 15px; }
+  .note {
+    margin-top: 18px; padding: 14px 18px; background: var(--bg);
+    border-left: 3px solid var(--accent); border-radius: 4px;
+    font-size: 14px; color: var(--muted);
+  }
+  main { max-width: 900px; margin: 0 auto; }
+  .card {
+    border-top: 1px solid var(--line); padding: 28px 0 32px;
+    break-inside: avoid;
+  }
+  .card:first-child { border-top: none; }
+  .head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; }
+  .idx {
+    flex: none; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--ink); color: #fff; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+    transform: translateY(2px);
+  }
+  h2 { font-size: 18px; margin: 0; font-weight: 600; }
+  .where { color: var(--accent); font-size: 13px; margin-left: auto; }
+  img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 6px; }
+  p.cap { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
+  footer { max-width: 900px; margin: 56px auto 0; color: var(--muted); font-size: 13px; }
+  @media print {
+    body { padding: 0; }
+    .card { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>{{TITLE}} · 结构图集</h1>
+  <div class="sub">{{SUBTITLE}}</div>
+  <div class="note">
+    导图工具（XMind 等）导入 Markdown 时不渲染图片，此处按顺序列出全部结构图，可浏览器查看或直接打印。
+    每张图下方标注它在论证链上的位置，便于对照导图章节。
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>{{FOOTER}}</footer>
+
+<script>
+// 替换为本书的实际条目：src 相对路径、title 图名、where 对应导图小节、cap 这张图在讲什么
+const IMAGES = [
+  // { src: "图片/01-xx.jpeg", title: "图名", where: "对应 3.1.2", cap: "说明这张图支撑哪一步论证。" },
+];
+
+const app = document.getElementById("app");
+if (!IMAGES.length) {
+  app.innerHTML = '<p class="sub" style="color:#B03A2E">尚未登记图片：请编辑本文件末尾的 IMAGES 数组。</p>';
+}
+IMAGES.forEach((it, i) => {
+  const card = document.createElement("section");
+  card.className = "card";
+  card.innerHTML = `
+    <div class="head">
+      <span class="idx">${String(i + 1).padStart(2, "0")}</span>
+      <h2>${it.title}</h2>
+      <span class="where">${it.where || ""}</span>
+    </div>
+    <img src="${it.src}" alt="${it.title}" loading="lazy">
+    <p class="cap">${it.cap || ""}</p>`;
+  app.appendChild(card);
+});
+</script>
+</body>
+</html>
